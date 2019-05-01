@@ -77,6 +77,31 @@ class Tree {
   getChildren() {
     return [...this.children.values()];
   }
+
+  removeChild(key) {
+    return this.children.delete(key);
+  }
+
+  hasChildren() {
+    return this.children.size > 0;
+  }
+
+  hasChild(key) {
+    return this.children.has(key);
+  }
+
+  getChild(key) {
+    return this.children.get(key);
+  }
+
+  getDeepChild(keys) {
+    const [key, ...rest] = keys;
+    const node = this.getChild(key);
+    if (!node || rest.length === 0) {
+      return node;
+    }
+    return node.getDeepChild(rest);
+  }
 }
 
 export default Tree;
