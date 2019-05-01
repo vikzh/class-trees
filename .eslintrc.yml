@@ -10,8 +10,5 @@ extends:
   - 'airbnb-base'
   - 'plugin:jest/recommended'
 
-parserOptions:
-  ecmaVersion: 2018
-  sourceType: module
 rules:
   no-console: 0
