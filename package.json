@@ -1,6 +1,6 @@
 {
   "name": "class-trees",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "tree data structure",
   "main": "dist/index.js",
   "scripts": {
