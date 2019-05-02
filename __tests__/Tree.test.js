@@ -31,7 +31,7 @@ describe('Tree', () => {
 
   it('#removeChild', () => {
     expect(tree.removeChild('head')).toBe(true);
-    expect(tree.removeChild('head')).toBe(false);
+    expect(tree.hasChildren()).toBe(false);
   });
 
   it('#hasChildren', () => {
@@ -40,7 +40,7 @@ describe('Tree', () => {
   });
 
   it('#hasChild', () => {
-    expect(tree.hasChild('randomKey')).toBe(false);
+    expect(tree.hasChild('')).toBe(false);
     expect(tree.hasChild('head')).toBe(true);
   });
 
