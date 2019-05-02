@@ -78,22 +78,73 @@ class Tree {
     return [...this.children.values()];
   }
 
+  /**
+   * remove Node's children
+   * @param key
+   * @returns {boolean}
+   * @example
+   * const tree = new Tree('html');
+   * tree.addChild('head');
+   * tree.removeChild('head'); // true
+   * tree.removeChild('head'); // false
+   */
   removeChild(key) {
     return this.children.delete(key);
   }
 
+  /**
+   * check if Node has children
+   * @returns {boolean}
+   * @example
+   * const tree = new Tree('html');
+   * tree.hasChildren(); // false
+   * tree.addChild('head');
+   * tree.hasChildren(); // true
+   */
   hasChildren() {
     return this.children.size > 0;
   }
 
+  /**
+   * check if Node has child by Key
+   * @param key
+   * @returns {boolean}
+   * @example
+   * const tree = new Tree('html');
+   * tree.hasChild('head'); // false
+   * tree.addChild('head');
+   * tree.hasChild('head'); // true
+   */
   hasChild(key) {
     return this.children.has(key);
   }
 
+  /**
+   * get Node's child by Key
+   * @param key
+   * @returns {any}
+   * @example
+   * const tree = new Tree('html');
+   * tree.getChild('head'); // undefined
+   * tree.addChild('head');
+   * tree.getChild('head').getKey(); // 'head'
+   */
   getChild(key) {
     return this.children.get(key);
   }
 
+  /**
+   * Get tree's deep child
+   * @param keys
+   * @returns {any}
+   * @example
+   * const tree = new Tree('html');
+   * const headNode = tree.addChild('head');
+   * const metaNode = headNode.addChild('meta');
+   * metaNode === tree.getDeepChild(['head', 'meta']);
+   * headNode === tree.getDeepChild(['head']);
+   * tree.getDeepChild(['head', 'wrongKey']); // undefined
+   */
   getDeepChild(keys) {
     const [key, ...rest] = keys;
     const node = this.getChild(key);
